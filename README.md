@@ -2,6 +2,8 @@
 
 Courses API is a simple API allowing consumers to view, create and delete courses.
 
+Click here ---> [Courses API](https://neo-courses.herokuapp.com)
+
 ## Getting Started
 
 Follow the instructions and enjoy API!
