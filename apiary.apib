@@ -1,0 +1,147 @@
+FORMAT: 1A
+HOST: https://courses.apiblueprint.org/
+
+# Course API
+
+Courses API is a simple API allowing consumers to view, create and delete courses.
+
+## Courses Collection [/courses]
+
+### List All Courses [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "id": 11,
+                "name": "Python",
+                "description": "REST",
+                "category": {
+                    "name": "Programming",
+                    "img_path": "snake/"
+                },
+                "logo": "Snake",
+                "contact": [
+                    {
+                        "type": 1,
+                        "value": "0700090909"
+                    }
+                ],
+                "branch": [
+                    {
+                        "latitude": "1",
+                        "longtitude": "2",
+                        "address": "Neobis"
+                    }
+                ]
+            }
+        ]
+
+### Create a New Course [POST]
+
+You may create your own course using this action. It takes a JSON
+object containing a collection of information about the course.
+
++ Request (application/json)
+
+        {
+            "name": 
+                "Spanish"
+            ,
+            "description": 
+                "Course for beginners"
+            ,
+            "category":
+                {
+                    "name":"Language",
+                    "img_path":"language/"
+                }
+            ,
+            "logo": 
+                "SpainFlag"
+            ,
+            "contact": [
+                {
+                "type":3,
+                "value":"spanish-course@example.com"
+                }
+            ]
+            ,
+            "branch": [
+                {
+                "latitude":"40.4637° N",
+                "longtitude":"3.7492° W",
+                "address":"Spain"
+                }
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /courses/15
+
+    + Body
+
+            {
+                "id": 15,
+                "name": "Spanish",
+                "description": "Course for beginners",
+                "category": {
+                    "name": "Language",
+                    "img_path": "language/"
+                },
+                "logo": "SpainFlag",
+                "contact": [
+                    {
+                        "type": 3,
+                        "value": "spanish-course@example.com"
+                    }
+                ],
+                "branch": [
+                    {
+                        "latitude": "40.4637° N",
+                        "longtitude": "3.7492° W",
+                        "address": "Spain"
+                    }
+                ]
+            }
+            
+## Course [/courses/{course_id}]
+
++ Parameters
+    + course_id (number) - ID of the Course in the form of an integer
+    
+
+### View a Course Detail [GET]
+
++ Response 200 (application/json)
+
+            {
+                "id": 13,
+                "name": "Swift",
+                "description": "ios",
+                "category": {
+                    "name": "Programming",
+                    "img_path": "swift/"
+                },
+                "logo": "swiftLogo",
+                "contact": [
+                    {
+                        "type": 3,
+                        "value": "swift@example.com"
+                    }
+                ],
+                "branch": [
+                    {
+                        "latitude": "1",
+                        "longtitude": "2",
+                        "address": "Neobis"
+                    }
+                ]
+            }
+            
+### Delete [DELETE]
+
++ Response 204
